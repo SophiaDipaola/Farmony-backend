@@ -12,7 +12,7 @@ const index = (req, res) => {
 const show = (req, res) => {
     console.log('=====> Inside GET /gardens/:id');
     console.log('=====> req.params');
-    console.log(req.params); 
+    console.log(req.params);
 
     db.Garden.findById(req.params.id, (err, foundGarden) => {
         if (err) console.log('Error in garden#show:', err);
@@ -23,7 +23,7 @@ const show = (req, res) => {
 const create = (req, res) => {
     console.log('=====> Inside POST /gardens');
     console.log('=====> req.body');
-    console.log(req.body); 
+    console.log(req.body);
 
     db.Garden.create(req.body, (err, savedGarden) => {
         if (err) console.log('Error in garden#create:', err);
@@ -34,7 +34,7 @@ const create = (req, res) => {
 const update = (req, res) => {
     console.log('=====> Inside PUT /gardens/:id');
     console.log('=====> req.params');
-    console.log(req.params); 
+    console.log(req.params);
     console.log('=====> req.body');
     console.log(req.body);
 
@@ -47,12 +47,12 @@ const update = (req, res) => {
 const destroy = (req, res) => {
     console.log('=====> Inside DELETE /gardens/:id');
     console.log('=====> req.params');
-    console.log(req.params); 
-    
+    console.log(req.params);
+
     db.Garden.findByIdAndDelete(req.params.id, (err, deletedGarden) => {
         if (err) console.log('Error in garden#destroy:', err);
-          res.sendStatus(200);
-          console.log(deletedGarden);
+        res.sendStatus(200);
+        console.log(deletedGarden);
     });
 };
 
@@ -62,4 +62,5 @@ module.exports = {
     create,
     update,
     destroy,
+    showMany
 };
